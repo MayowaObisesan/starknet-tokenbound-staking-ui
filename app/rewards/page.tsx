@@ -1,21 +1,14 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { useTokenBoundSDK } from "../hooks";
-import { Button, Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
-import { useContractRead, useContractWrite } from "@starknet-react/core";
+import { Button, Card, CardBody, CardHeader, Divider } from "@heroui/react";
 
 function Rewards() {
-    const [token_contract_address, set_token_contract_address] =
-        useState<string>("");
-    const [token_id, set_token_id] = useState<string>("");
-    const [loading, setLoading] = useState(false)
+    const [actionLoading, setActionLoading] = useState(false)
     const [stakeAmount, setStakeAmount] = useState<number>(0);
 
-    const { tokenbound } = useTokenBoundSDK();
-
-    /*
-    const { data, isLoading } = useContractRead({
+    /* Hooks for reading and writing to your smart contract. */
+    /*const { data, isLoading } = useContractRead({
         address: "yourContractAddressHere",
         functionName: "yourFunctionNameHere",
         abi: ["yourAbiHere"],
@@ -30,38 +23,11 @@ function Rewards() {
         };
         return [tx];
     }, [stakeAmount]);
-    
-    const { write } = useContractWrite({ calls });
-    */
 
-    const handleAddressChange = (e: any) => {
-        set_token_contract_address(e.target.value);
-    };
-    const handleTokenChange = (e: any) => {
-        set_token_id(e.target.value);
-    };
-    const handleCreateAccount = async () => {
-        if (stakeAmount.toString().trim() === "") {
-            alert("All input fields are required");
-            setLoading(false);
-            return;
-        }
+    const { write } = useContractWrite({ calls });*/
 
-        // write(); // call the write function here
-
-        setLoading(true);
-        try {
-            await tokenbound.createAccount({
-                tokenContract: token_contract_address,
-                tokenId: token_id
-            });
-            set_token_contract_address("");
-            set_token_id("");
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);
-        }
+    const handleClaimRewards = async () => {
+       /* Handle claim rewards here. */
     };
 
     return (
@@ -94,7 +60,7 @@ function Rewards() {
                             </div>
                         </section>
 
-                        <Button type="button" color="success" isLoading={loading} disabled={!!loading} onClick={handleCreateAccount} className="font-medium">
+                        <Button type="button" color="success" isLoading={actionLoading} disabled={actionLoading} onPress={handleClaimRewards} className="font-medium">
                             Claim Reward
                         </Button>
                     </CardBody>

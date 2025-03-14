@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useAccount, useConnect, useDisconnect } from "@starknet-react/core";
-import { Button } from '@nextui-org/react';
+import { Button } from "@heroui/react";
 
 function ConnectButton() {
     const { connect, connectors } = useConnect();

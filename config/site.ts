@@ -61,7 +61,7 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/MayowaObisesan/",
-    twitter: "https://twitter.com/blessed_mayowa",
-    discord: "https://discord.gg/Blessed07",
+    twitter: "https://x.com/amdblessed",
+    discord: "https://discord.gg/amtheblessed",
   },
 };

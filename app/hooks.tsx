@@ -1,22 +1,6 @@
-import { useAccount } from "@starknet-react/core";
-import { TokenboundClient, WalletClient } from "starknet-tokenbound-sdk";
-import { IMPLEMENTATION_HASH, JSON_RPC, REGISTRY_ADDRESS } from "./constants";
-
-export const useTokenBoundSDK = () => {
-    // setup SDK
-    const { account } = useAccount();
-
-    const options = {
-        account: account,
-        registryAddress: REGISTRY_ADDRESS,
-        implementationAddress: IMPLEMENTATION_HASH,
-        jsonRPC: JSON_RPC
-    }
-
-    let tokenbound: any;
-    if (account) {
-        tokenbound = new TokenboundClient(options);
-    }
-
-    return { tokenbound };
-};
+/* Implement any hook you'll need across the project here.
+* For example, if you need a generic hook for reading from contracts, you can create this as an
+* abstraction over the default starknet useContracRead hook.*/
+export function useRead() {
+    // Your custom read hook here.
+}
